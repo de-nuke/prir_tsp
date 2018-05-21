@@ -19,12 +19,13 @@ if rank == MASTER:
         'E': (4,4),
         'F': (5,5),
     }
-    size = 3
-    mutate = 0.01
+    size = 10
+    mutation_probability = 0.01
     info = {
         'cities': cities,
         'size': size,
-        'mutate': mutate,
+        'mutation_probability': mutation_probability,
+        'iterations': 100,
     }
 else:
     info = None
@@ -35,15 +36,18 @@ cities_names = info['cities'].keys()
 
 paths = [''.join(random.sample(cities_names, len(cities_names))) for _ in range(info['size'])]
 
-print(paths)
+for i in range(info['iterations']):
+     paths = mutate(paths, info['mutation_probability'])
+     paths = cross(paths)
+     paths = reproduce(paths, info['cities'])
+ 
+     best, average, worst = find_path_statistics(paths, cities)
+     
+     print(paths, best, average, worst)
 
-paths = crossover(paths)
-print(paths)
+
+
+
+
 
 #results = comm.gather(ranks, root=MASTER)
-#print("Po barierze")
-#print("rank = {} -> {}".format(rank, results))
-
-
-
-#print('rank',rank,paths)

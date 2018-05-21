@@ -26,7 +26,7 @@ def reproduce(population, cities):
         next_population.append(population[j])
     return next_population
 
-def crossover(population):
+def cross(population):
     if len(population) <= 1:
         return population
     pairs = []
@@ -49,3 +49,34 @@ def crossover(population):
 
     return population
 
+
+def mutate(population, mutation_prob=0.01):
+    size = len(population)
+    cities_length = len(population[0])
+    for i in range(size):
+        for j in range(cities_length):
+            chance = random.random()
+            if chance >= 1 - mutation_prob:
+                randj = random.randint(0, cities_length -1)
+                path = list(population[i])
+                path[j], path[randj] = path[randj], path[j]
+
+                population[i] = ''.join(path) 
+    return population
+
+def find_path_statistics(population, cities):
+    best = (path_distance(population[0], cities), population[0])
+    worst = (path_distance(population[0], cities), population[0])
+    average = 0
+    
+    for path in population:
+        dist = path_distance(path, cities)
+        if dist < best[0]: best = (dist, path)
+        if dist > worst[0]: worst = (dist, path)
+        average += dist
+    average = average / len(population)
+    
+    return best, average, worst
+
+    
+    

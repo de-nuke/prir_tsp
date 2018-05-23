@@ -1,6 +1,22 @@
 import math
 
 
+def parse_output(info):
+    lines = []
+    for key in info:
+        if key == 'cities':
+            for city in info['cities']:
+                lines.append("CITY {} {} {}".format(city, *info['cities'][city]))
+        else:
+            lines.append("{} {}".format(key.upper(), str(info[key])))
+    return '\n'.join(lines)
+    
+
+
+def qbytearray_to_str(qbytearray):
+    return ''.join(list(qbytearray))
+
+
 def parse_input(input_text):
     info = {
         'cities': {}

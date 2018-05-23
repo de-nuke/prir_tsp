@@ -58,6 +58,11 @@ class Ui_MainWindow(object):
         self.stop_button.setMinimumSize(QtCore.QSize(0, 40))
         self.stop_button.setObjectName("stop_button")
         self.verticalLayout.addWidget(self.stop_button)
+        self.label_4 = QtWidgets.QLabel(self.horizontalLayoutWidget)
+        self.label_4.setMinimumSize(QtCore.QSize(0, 0))
+        self.label_4.setWordWrap(True)
+        self.label_4.setObjectName("label_4")
+        self.verticalLayout.addWidget(self.label_4)
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem)
         self.horizontalLayout.addLayout(self.verticalLayout)
@@ -83,4 +88,5 @@ class Ui_MainWindow(object):
         self.label_3.setText(_translate("MainWindow", "Mutation probablilty:"))
         self.start_button.setText(_translate("MainWindow", "Start"))
         self.stop_button.setText(_translate("MainWindow", "Reset"))
+        self.label_4.setText(_translate("MainWindow", "TextLabel"))
 

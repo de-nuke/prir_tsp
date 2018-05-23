@@ -1,10 +1,12 @@
+# -*- coding: utf-8 -*-
 import sys
 
 #text = sys.stdin.read()
 
-text = sys.stdin.read()
+text = open(sys.argv[1]).read()
 
-print(text.split('\n'))
+print("ashdasuidiudaiusda iud asd a\nssdsa das das a\ns das dsadasdsadadsadsa das dasd asd asd\nas das asd ad as][][][^%^#@")
+sys.stdout.flush()
 
 #print(text.upper())
 

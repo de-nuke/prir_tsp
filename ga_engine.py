@@ -13,8 +13,9 @@ rank = comm.Get_rank()
 
 
 if rank == MASTER:
-    input_data = sys.stdin.read()
-    info = parse_input(input_data)    
+    with open(sys.argv[1]) as f:
+        input_data = f.read()
+        info = parse_input(input_data)
 else:
     info = None
 
@@ -34,11 +35,12 @@ for i in range(int(info['iterations'])):
      if best[0] < global_best[0]:
          global_best = best
      
-     
-     #print(paths, best, average, worst)
-
 results = comm.gather({'rank': rank, 'result': global_best}, root=MASTER)
 
 if rank == MASTER:
+    best = (float("inf"), '')
     for result in results:
-        print(result)
+        if result['result'][0] < best[0]:
+            best = result['result']
+    print("BEST_PATH {} {}".format(*best))
+        

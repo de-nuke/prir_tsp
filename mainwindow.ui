@@ -37,7 +37,14 @@
         </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="size_input"/>
+        <widget class="QSpinBox" name="size_input">
+         <property name="minimum">
+          <number>2</number>
+         </property>
+         <property name="maximum">
+          <number>10000</number>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_2">
@@ -47,7 +54,14 @@
         </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="iterations_input"/>
+        <widget class="QSpinBox" name="iterations_input">
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>10000</number>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_3">
@@ -57,7 +71,17 @@
         </widget>
        </item>
        <item>
-        <widget class="QDoubleSpinBox" name="mutation_input"/>
+        <widget class="QDoubleSpinBox" name="mutation_input">
+         <property name="decimals">
+          <number>4</number>
+         </property>
+         <property name="maximum">
+          <double>1.000000000000000</double>
+         </property>
+         <property name="singleStep">
+          <double>0.000100000000000</double>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QPushButton" name="start_button">

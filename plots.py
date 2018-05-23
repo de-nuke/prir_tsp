@@ -33,7 +33,7 @@ class PlotCanvas(FigureCanvas):
 
         self.draw()
 
-    def draw_map(self, path, cities):
+    def draw_map(self, path, cities, only_cities=False):
         self.x_list = []; self.y_list = []; labels = []
         for city in path:
             self.x_list.append(cities[city][0])
@@ -42,7 +42,7 @@ class PlotCanvas(FigureCanvas):
         for i in range(len(self.x_list)):
             labels.append('{name}({x},{y})'.format(name=chr(65+i), x = self.x_list[i], y = self.y_list[i]))
         self.ax.plot(self.x_list, self.y_list, 'bo')
-        self.ax.plot(self.x_list, self.y_list, linestyle='-', linewidth = 0.8)
+        self.ax.plot(self.x_list, self.y_list, linestyle='-', linewidth = 0.8 if not only_cities else 0)
         for label, x, y in zip(labels, self.x_list, self.y_list):
             self.ax.annotate(label, xy=(x, y), xytext=(25,-4), textcoords='offset points', ha='right', va='top')
         self.draw()

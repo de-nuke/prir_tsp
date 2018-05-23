@@ -1,6 +1,23 @@
 import math
 
 
+def parse_input(input_text):
+    info = {
+        'cities': {}
+    }
+    lines = [line for line in input_text.split("\n") if line]
+    for line in lines:
+        bits = line.split()
+        if len(bits) < 2:
+            #raise error
+            pass
+        if bits[0] == 'CITY':
+            info['cities'][bits[1]] = (int(bits[2]), int(bits[3]))
+        else:
+            info[bits[0].lower()] = float(bits[1])
+    return info
+
+##############################################
 def distance(p1, p2):
     x1, y1 = p1
     x2, y2 = p2
@@ -21,3 +38,6 @@ def rgb(pos):
     sg = '{:02x}'.format(int(g))
     sb = '{:02x}'.format(int(b))
     return '#' + sr + sg + sb
+
+
+

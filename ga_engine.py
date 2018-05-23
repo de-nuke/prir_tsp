@@ -21,6 +21,8 @@ else:
 
 info = comm.bcast(info, root=MASTER)
 
+info['size'] = info['size'] // size
+
 cities_names = info['cities'].keys()
 paths = [''.join(random.sample(cities_names, len(cities_names))) for _ in range(int(info['size']))]
 

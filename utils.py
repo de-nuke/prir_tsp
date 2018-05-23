@@ -30,7 +30,7 @@ def parse_input(input_text):
         if bits[0] == 'CITY':
             info['cities'][bits[1]] = (int(bits[2]), int(bits[3]))
         else:
-            info[bits[0].lower()] = float(bits[1])
+            info[bits[0].lower()] = float(bits[1]) if "." in bits[1] else int(bits[1])
     return info
 
 ##############################################

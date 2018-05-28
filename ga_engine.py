@@ -16,12 +16,18 @@ if rank == MASTER:
     with open(sys.argv[1]) as f:
         input_data = f.read()
         info = parse_input(input_data)
+    if len(sys.argv) > 2 and sys.argv[2] == "True":
+        divide = True
+    else:
+        divide = False
 else:
     info = None
+    divide = False
 
-info = comm.bcast(info, root=MASTER)
+info, divide = comm.bcast((info, divide), root=MASTER)
 
-info['size'] = info['size'] // size
+if divide:
+    info['size'] = info['size'] // size
 
 cities_names = info['cities'].keys()
 paths = [''.join(random.sample(cities_names, len(cities_names))) for _ in range(int(info['size']))]

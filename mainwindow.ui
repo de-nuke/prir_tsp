@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1035</width>
-    <height>656</height>
+    <width>1043</width>
+    <height>667</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -116,6 +116,23 @@
         </widget>
        </item>
        <item>
+        <widget class="QRadioButton" name="multiply_population">
+         <property name="text">
+          <string>Multiply population on processes</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="divide_population">
+         <property name="text">
+          <string>Divide population between processes</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="start_button">
          <property name="minimumSize">
           <size>
@@ -150,7 +167,7 @@
           </size>
          </property>
          <property name="text">
-          <string>info: </string>
+          <string>Info: </string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
@@ -158,11 +175,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_5">
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
+        <widget class="QListWidget" name="info_list"/>
        </item>
        <item>
         <spacer name="verticalSpacer">
@@ -181,13 +194,39 @@
      </item>
     </layout>
    </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>620</y>
+      <width>241</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Genetic algorithm execution time: </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="time_label">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>620</y>
+      <width>131</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1035</width>
+     <width>1043</width>
      <height>22</height>
     </rect>
    </property>
